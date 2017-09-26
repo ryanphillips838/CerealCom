@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+	<meta charset="utf-8">
+  <script src="jquery-1.11.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="main.js"></script>
+  <link href="jquery-ui.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin:0;
+      padding:0;
+    }
+    label {
+      display:inline-block;
+      width:100px;
+      text-align:left;
+    }
+    select {
+      width:100px;
+      margin:1em;
+    }
+    input {
+      margin:1em;
+    }
+    #menu button{
+      margin:8px;
+      padding:9px;
+      display:inline-block;
+    }
+    textarea, #terminal{
+      font-family:"Courier New", Courier, monospace;
+      font-size: 20px;
+      border: solid black 1px;
+      resize:none;
+      overflow: hidden;
+    }
+    textarea:focus {
+      outline:0;
+    }
+    #cursor {
+      width: 12px;
+      height: 20px;
+      background-color: orange;
+      position: absolute;
+      z-index: -100;
+    }
+  </style>
+  </head>
+  <body>
+    <div style="height:100vh; width:100%">
+  <div id="menu" style="height:36px">
+	<button class="ui-state-default ui-state-disabled ui-corner-all ui-icon ui-icon-transferthick-e-w" id="buttonOpen" disabled="true" title="Open Serial Port">Open</button>
+	<button class="ui-state-default ui-state-disabled ui-corner-all ui-icon ui-icon-stop" id="buttonClose" disabled="true" title="Close Serial Port">Close</button>
+	<button class="ui-state-default ui-state-disabled ui-corner-all ui-icon ui-icon-arrowthickstop-1-s" id="buttonSaveFile" title="Capture to File" disabled="false">Save to file</button>
+	<button class="ui-state-default ui-state-disabled ui-corner-all ui-icon ui-icon-arrowthickstop-1-n" id="buttonSendFile" title="Send Text File" disabled="true">Send file</button>
+	<button class="ui-state-default ui-corner-all ui-icon ui-icon-trash" id="buttonClear" title="Clear Window">Clear Window</button>
+	<button class="ui-state-default ui-corner-all ui-icon ui-icon-gear" id="buttonSettings" title="Settings">Settings</button>
+	<button class="ui-state-default ui-corner-all ui-icon ui-icon-help" id="buttonHelp" title="Help">Help</button>
+	<button class="ui-state-default ui-corner-all ui-icon ui-icon-arrowthickstop-1-e" id="buttonTest" title="test">Test</button>
+  </div>
+
+	<!-- ui-dialog -->
+  <div id="dialog" title="Settings">
+  <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Com</a></li>
+    <li><a href="#tabs-2">Other</a></li>
+  </ul>
+  <div id="tabs-1">
+<div>
+<label for="ports">COM Port</label>
+<select id="ports"></select>
+</div>
+<div>
+  <label for="baud">Baud Rate</label>
+	<select id="baud">
+<option value="115200">115200</option>
+<option value="57600">57600</option>
+<option value="38400">38400</option>
+<option value="19200">19200</option>
+<option value="14400">14400</option>
+<option value="9600" selected>9600</option>
+<option value="4800">4800</option>
+<option value="1200">1200</option>
+<option value="2400">2400</option>
+<option value="300">300</option>
+<option value="110">110</option>
+</select>
+</div>
+<div>
+  <label for="dataBits">Data Bits</label>
+<select id="dataBits">
+  <option value="seven">7</option>
+  <option value="eight" selected>8</option>
+</select>
+</div>
+<div>
+<label for="parity">Parity</label>
+<select id="parity">
+  <option value="no" selected>None</option>
+  <option value="odd">Odd</option>
+  <option value="even">Even</option>
+</select>
+</div>
+<div>
+<label for="stopBits">Stop Bits</label>
+<select id="stopBits">
+  <option value="one" selected>One</option>
+  <option value="two">Two</option>
+</select>
+</div>
+<div>
+<label for="flowControl">Flow Control</label>
+<select id="flowControl">
+  <option value="" selected>None</option>
+  <option value="true">Hardware</option>
+</select>
+</div>
+</div>
+<div id="tabs-2">
+<div>
+  <input type="checkbox" id="cr">Add CR to LF<br>
+  <input type="checkbox" id="lf" checked>Add LF to CR<br>
+  <input type="checkbox" id="echo">Echo characters typed locally<br>
+  <input type="checkbox" id="binary">Convert Binary to Hex<br>
+  <input type="number" id="binarynl" min="1" max="100" value="4">Binary bytes before new line<br>
+  <input type="number" id="charDelay" min="0" max="100" value="5">Character Delay (in milliseconds)<br/>
+</div>
+</div>
+</div>
+</div>
+<div style="margin:10px;height: calc(100% - 56px)">
+  <!--<div id="terminal"><div id="cursor"></div></div>-->
+	<textarea id="dataWindow" rows="24" cols="79" readonly></textarea>
+	<div id="cursor"></div>
+</div>
+</div>
+  </body>
+</html>

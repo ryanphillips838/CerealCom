@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <title>Help</title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <link href="jquery-ui.min.css" rel="stylesheet">
+    <style>
+      html {
+        overflow-y:scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1 style="text-align:center">Welcome to Cereal Com!</h1>
+
+  <p>
+    If you have been using Cereal Com I would love to hear from you. While you're at it please
+    <a href="https://chrome.google.com/webstore/detail/cereal-com/ofgchohacklchmmbojmjlcgbdckliaoc?utm_source=chrome-ntp-icon" target="_blank">rate Cereal Com!</a>
+  </p>
+      <h3>Using Serial Communication</h3>
+      <p>
+        The first thing you see when Cereal Com starts is the setup menu. Here you can change settings
+        and configure the serial port before you connect. Once you are finished setting up you have 2 options:
+
+        <ol>
+        <li>Close the window using the X at the top or</li>
+        <li>Open the serial port (this also closes the setup window)</li>
+        </ol>
+
+        If you decided to click the 'Open' button the settings window closed and an attempt was made to open the serial port using the settings you chose.
+        If the serial port opened successfully then you can start sending an receiving data through the port. All you have to do is type with
+        the window selected to send characters. Not all characters have been tested but all letters, numbers, punctuation keys and the 'Esc' key
+        all work correctly. Control characters have not been tested. If you are having trouble sending a specific character e-mail me and I will
+        try to add it.
+        <br/>
+        <br/>
+        You will see 3 buttons are available to you:
+        <ol>
+          <li><span class="ui-state-default ui-corner-all ui-icon ui-icon-stop" style="display:inline-block;padding:1px">Stop</span> - This button will disconnect the serial port</li>
+          <li><span class="ui-state-default ui-corner-all ui-icon ui-icon-arrowthickstop-1-s" style="display:inline-block;padding:1px">Save</span> - This button will record data received on the serial port</li>
+          <li><span class="ui-state-default ui-corner-all ui-icon ui-icon-arrowthickstop-1-n" style="display:inline-block;padding:1px">Send</span> - This button will send a file to the serial port of your choosing</li>
+        </ol>
+        If you decided to close the settings window using the X at the top the window closed and the serial port did not open.
+        You can do a few things here:<br/>
+        <ol>
+          <li><span class="ui-state-default ui-corner-all ui-icon ui-icon-transferthick-e-w" style="display:inline-block;padding:1px">Open</span> - This button opens the serial port using the settings you chose previously</li>
+          <li><span class="ui-state-default ui-corner-all ui-icon ui-icon-gear" style="display:inline-block;padding:1px">Settings</span> - This button opens the settings menu again</li>
+          <li><span class="ui-state-default ui-corner-all ui-icon ui-icon-help" style="display:inline-block;padding:1px">Help</span> - This button opens the help window</li>
+        </ol>
+      </p>
+      <h3>Saving Data</h3>
+      <p>
+        When you have continuous data coming to the serial port that you have open you can store that data in a text file on your computer.
+        <ol>
+          <li>Open the serial port</li>
+          <li>Click the <span class="ui-state-default ui-corner-all ui-icon ui-icon-arrowthickstop-1-s" style="display:inline-block;padding:1px">Save</span> button</li>
+          <li>Choose where you want to save the file and what you want to name it</li>
+          <li>Start storing data</li>
+        </ol>
+        Cereal Com will continue to store data until you click the <span class="ui-state-default ui-corner-all ui-icon ui-icon-stop" style="display:inline-block;padding:1px">Stop</span> button.
+      </p>
+      <h3>Sending Files</h3>
+      <p>
+        To send a file you must follow these steps:
+        <ol>
+          <li>Open the serial port</li>
+          <li>Click the <span class="ui-state-default ui-corner-all ui-icon ui-icon-arrowthickstop-1-n" style="display:inline-block;padding:1px">Send</span> button</li>
+          <li>Choose the file you want to send</li>
+          <li>Wait while the file is sent</li>
+        </ol>
+        Only text files have been tested. If you want to see the progress of the file being sent choose to echo characters in the settings window.
+      </p>
+      <h3>FAQs</h3>
+      <p>
+        <strong>Why do I keep getting an error message when I try to open the serial port?</strong>
+        <br/>
+        You probably already have that port open in another program. There are other Chrome apps that use serial ports that do not properly close the serial connection when the window closes.
+        Unfortunately I cannot help you fix that. If you are trying to use a bluetooth port or other type of port I'm not sure. No testing has been done on anything other than serial ports.
+        <br/><br/>
+        <strong>What types of files can I send through the serial port?</strong>
+        <br/>
+        Good question. Only text files have been tested. I'm not sure what other kinds of files you would want to send over such a slow connection.
+        <br/><br/>
+        <strong>What is the echo function for?</strong>
+        <br/>
+        By default any character you type will not appear in the window. If you want or need to see what you are typing then check the box for echo.
+        <br/><br/>
+        <strong>What are CR and LF?</strong>
+        <br/>
+        CR stands for Carriage Return and LF stands for Line Feed. You can think of it in terms of a typewriter. CR will send you back to the beginning of a line.
+        LF will start a new line. The data could show up in an unusual way if you do not have both. For example, if you only have CR coming from
+        your device and no LF you might see the same line be written over and over instead of seeing every string on a new line.
+        <br/><br/>
+        <strong>What is the character delay for?</strong>
+        <br/>
+        Depending on your computer you may run into issues with characters being sent to quickly. This is mainly for sending text files.
+        If the characters send too quickly your connected device may miss a few and produce undesirable results. Increasing the character
+        delay should resolve that issue.
+        <br/><br/>
+        <strong>Are the settings stored so I don't have to choose them again at every startup?</strong>
+        <br/>
+        Yes. Settings should sync to your Chrome login so settings carry over from one computer to another. The settings are saved every time
+        you open a connection to a serial port.
+        <br/><br/>
+        <strong>Does Cereal Com close the serial port when I close the app?</strong>
+        <br/>
+        Yes. Cereal Com closes the port properly when you close the app window or when you click the stop button. Most of the other
+        serial communication apps in the Chrome Web Store do not.
+        <br/><br/>
+        <strong>Will you be adding any features?</strong>
+        <br/>
+        I will add features to Cereal Com as they are requested. If you want a feature please e-mail me and I will try to add it. If a
+        feature seems like too big of an addition then I may even make it a stand-alone app. I will do my best to respond to your requests in
+        a timely manner. I will also be adding to the FAQ section as I get more questions.
+        <br/><br/>
+        <strong>What are the permissions for?</strong>
+        <br/>
+        Access to Serial Ports is for connecting to the serial port obviously. Writing to files on your system is for 2 things. First
+        it is for storing settings so you don't have to choose your settings every time you open the app. Second it is for collecting
+        data from the serial port and storing in a file on your computer. This app does not store any personal information or anything
+        other than the settings and whatever you choose to store from the serial port.
+        <br/><br/>
+        <strong>Does Cereal Com collect data for analytics?</strong>
+        <br/>
+        No. There is nothing in Cereal Com that collects information on you, how you use the app or anything else. I don't care how you use the
+        app, I just want you to use it and benefit from it.
+        <br/><br/>
+        <strong>How do I contact you if I have questions or feature requests?</strong>
+        <br/>
+        <a href="https://chrome.google.com/webstore/detail/cereal-com/ofgchohacklchmmbojmjlcgbdckliaoc?utm_source=chrome-ntp-icon" target="_blank">Click Here</a>
+        or go to the Chrome Web Store listing for Cereal Com, click the support tab and fill out the form on the right.
+        <br/><br/>
+        <strong>How does Binary work?</strong>
+        <br/>
+        Some devices send information via binary (1s and 0s). Checking the 'Convert Binary to Hex' box will take in that binary data
+        and turn it into readable Hex values. Every byte of binary data can be converted to Hex. Instead of seeing random
+        garbage characters, you will now see numbers 0-9 and letters A-F in pairs (for example: AB or 3F). You can also choose how often to put the incoming binary on a
+        new line using the 'Binary characters before a new line' box. This is useful if you know you have a certain number of bytes
+        coming in.
+      </p>
+      <p>
+        <strong>Thank you for using Cereal Com! I hope you find it to be a very useful tool.</strong>
+      </p>
+    </section>
+  </body>
+</html>
